@@ -1,1 +1,194 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <meta name="description" content="Anthropos Divinus Digital Codex: research manuscript catalog by John Henry Douglas III, featuring Harmonia Mundi, geometric coherence, graph theory, and comparative religious studies.">
+  <title>Digital Codex | Anthropos Divinus</title>
+  <style>
+    :root { color-scheme: dark; --background:#101820; --panel:#19232e; --panel2:#202d39; --gold:#d8b879; --text:#f6f2e9; --muted:#b9bcc3; --line:#554a33; }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--background); color:var(--text); margin:0; font-family:Arial,Helvetica,sans-serif; line-height:1.65; }
+    a { color:var(--gold); text-underline-offset:4px; }
+    a:hover, a:focus-visible { color:#f4d99d; }
+    button, input { font:inherit; }
+    :focus-visible { outline:3px solid #f4d99d; outline-offset:3px; }
+    .container { width:min(1080px,92%); margin-inline:auto; }
+    header { border-bottom:1px solid var(--line); padding:20px 0; }
+    .brand { color:var(--gold); font:bold clamp(1.16rem,4vw,1.45rem) Georgia,serif; letter-spacing:2px; text-decoration:none; }
+    nav { display:flex; flex-wrap:wrap; gap:8px 24px; margin-top:12px; }
+    nav a { text-decoration:none; color:var(--muted); font-size:.92rem; }
+    nav a[aria-current="page"] { color:var(--gold); }
+    .hero { padding:72px 0 55px; border-bottom:1px solid var(--line); background:radial-gradient(circle at 92% 0%,#25303a 0%,var(--background) 54%); }
+    .overline { color:var(--gold); text-transform:uppercase; font-size:.78rem; font-weight:bold; letter-spacing:.17em; }
+    h1, h2, h3 { font-family:Georgia,serif; line-height:1.18; }
+    h1 { font-size:clamp(2.8rem,7.5vw,5.4rem); letter-spacing:.015em; color:var(--gold); margin:16px 0 21px; }
+    .lead { font-size:clamp(1.04rem,2.4vw,1.25rem); max-width:760px; color:var(--muted); }
+    .metrics { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+    .metric { border:1px solid var(--line); padding:13px 18px; border-radius:4px; color:var(--muted); font-size:.89rem; }
+    .metric strong { color:var(--gold); font-size:1.18rem; padding-right:6px; }
+    main { padding:55px 0 100px; }
+    .section-head { margin-bottom:24px; }
+    .section-head h2 { font-size:clamp(1.8rem,4vw,2.55rem); color:var(--gold); margin:10px 0; }
+    .section-head p { max-width:760px; color:var(--muted); }
+    .search-label { display:block; font-weight:bold; margin-bottom:9px; }
+    #search { display:block; width:100%; padding:15px 18px; border:1px solid var(--gold); border-radius:5px; background:var(--panel); color:var(--text); }
+    #search::placeholder { color:var(--muted); }
+    .filters { display:flex; flex-wrap:wrap; gap:10px; padding-top:20px; }
+    .filter { border:1px solid var(--line); border-radius:999px; padding:8px 16px; background:transparent; color:var(--text); cursor:pointer; }
+    .filter[aria-pressed="true"] { background:var(--gold); color:var(--background); border-color:var(--gold); font-weight:bold; }
+    .count { color:var(--muted); margin:20px 0 30px; min-height:1.65em; }
+    .stack { display:grid; gap:22px; }
+    .entry { border:1px solid var(--line); border-radius:8px; background:var(--panel); padding:clamp(21px,4vw,34px); }
+    .entry h3 { color:var(--gold); font-size:clamp(1.45rem,3.5vw,2.05rem); margin:8px 0 8px; }
+    .subtitle { font-family:Georgia,serif; font-style:italic; color:var(--text); font-size:1.04rem; margin:0 0 15px; }
+    .meta { color:var(--muted); font-size:.9rem; }
+    .excerpt { margin:18px 0; }
+    .tag { display:inline-block; background:var(--panel2); border:1px solid var(--line); color:var(--gold); border-radius:3px; padding:4px 9px; letter-spacing:.08em; font-size:.7rem; text-transform:uppercase; font-weight:bold; }
+    details { margin-top:22px; border-top:1px solid var(--line); padding-top:15px; }
+    summary { cursor:pointer; color:var(--gold); font-weight:bold; }
+    details p { color:var(--muted); }
+    details strong { color:var(--text); }
+    .notice { margin-top:28px; padding:20px 23px; background:var(--panel); border-left:3px solid var(--gold); border-radius:4px; }
+    .notice h2 { font-size:1.35rem; color:var(--gold); margin:0 0 9px; }
+    .notice p { margin:0; color:var(--muted); }
+    .foot { border-top:1px solid var(--line); padding:32px 0 45px; color:var(--muted); font-size:.9rem; }
+    .foot strong { color:var(--gold); }
+    .foot a { color:var(--gold); }
+    @media (max-width:600px) { .hero { padding:52px 0 42px; } main { padding:40px 0 75px; } .metric { flex:1 1 45%; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a class="brand" href="./">ANTHROPOS DIVINUS</a>
+    <nav aria-label="Main navigation">
+      <a href="./">Home</a>
+      <a href="./codex.html" aria-current="page">Digital Codex</a>
+      <a href="./#lab">Calculator Lab</a>
+      <a href="./#publications">Publications</a>
+    </nav>
+  </div>
+</header>
+<section class="hero" aria-labelledby="main-title">
+  <div class="container">
+    <span class="overline">The Digital Sanctuary / Archive I</span>
+    <h1 id="main-title">The Digital Codex</h1>
+    <p class="lead">An evolving catalog of original research manuscripts in mathematical geometry, symbolic systems, and comparative religious inquiry. Each record identifies the manuscript's scope and separates formal models from historical evidence and interpretation.</p>
+    <div class="metrics" aria-label="Catalog overview">
+      <div class="metric"><strong>03</strong> manuscript records</div>
+      <div class="metric"><strong>02</strong> subject collections</div>
+      <div class="metric"><strong>01</strong> developing research archive</div>
+    </div>
+  </div>
+</section>
+<main class="container">
+  <section aria-labelledby="collection-title">
+    <div class="section-head">
+      <span class="overline">Research & Knowledge Library</span>
+      <h2 id="collection-title">Browse the collection</h2>
+      <p>The entries below are author-supplied manuscript records. These are descriptive previews, not public full-text downloads or claims of independent scientific validation.</p>
+    </div>
+    <label class="search-label" for="search">Search publications</label>
+    <input id="search" type="search" placeholder="Try Harmonia, phase-lock, Hebrew, geometry..." autocomplete="off">
+    <div class="filters" role="group" aria-label="Filter by department">
+      <button class="filter" type="button" data-category="all" aria-pressed="true">All publications</button>
+      <button class="filter" type="button" data-category="geometry" aria-pressed="false">Mathematics & Geometry</button>
+      <button class="filter" type="button" data-category="religion" aria-pressed="false">Religion & Languages</button>
+    </div>
+    <p class="count" id="result-count" role="status" aria-live="polite">3 manuscript records found.</p>
+    <div class="stack" id="entries">
+      <article class="entry" data-category="geometry" data-search="harmonia convergence engine geometric coherence registration phase-lock compiled layer image structural analysis radial rotational calculus proxy residuals">
+        <span class="tag">Mathematical Frameworks / Compiled Dossier</span>
+        <h3>The Harmonia Convergence Engine</h3>
+        <p class="subtitle">Geometric Coherence, Registration, and Phase-Lock in a Compiled Layer I–II Image System</p>
+        <p class="meta">John Henry Douglas III &nbsp;·&nbsp; 52-page supplied document &nbsp;·&nbsp; Date not specified in opening document record</p>
+        <p class="excerpt">A compiled research dossier bringing together multiple geometric image studies. It investigates rotational and radial transformations, weighted coherence scores, alignment, structural residuals, and proposed phase-lock criteria within a Layer I–II mathematical framework.</p>
+        <details>
+          <summary>Research scope and manuscript information</summary>
+          <p><strong>Core topics:</strong> Circular boundaries, nodal geometry, chord networks, smoothed proxy observables, residual registration, geometric error margins, and local-maximum criteria.</p>
+          <p><strong>Organization:</strong> The manuscript describes itself as a compilation of related entries, not one uninterrupted paper.</p>
+          <p><strong>Methodological status:</strong> Formal mathematical model and source-specific image analyses; its coherence functional is a model definition, not independently established physical behavior.</p>
+          <p><strong>Full manuscript:</strong> Not linked. Publication and distribution approval pending.</p>
+        </details>
+      </article>
+      <article class="entry" data-category="geometry" data-search="harmonic lattice geometry theorem level study harmonia mundi metatron cube flower life hex valkyrie sandalphon seal euclidean graph theory symmetry">
+        <span class="tag">Mathematical Frameworks / Geometry Thesis</span>
+        <h3>Harmonic Lattice Geometry</h3>
+        <p class="subtitle">A Theorem-Level Study of Harmonia Mundi, Metatron’s Cube, the Flower of Life, and the Hex of Valkyrie</p>
+        <p class="meta">John Henry Douglas III &nbsp;·&nbsp; 3 March 2026 &nbsp;·&nbsp; 24-page supplied document</p>
+        <p class="excerpt">A proposed geometric and harmonic framework relating the Lost Harmonia Mundi, Metatron’s Cube, the Flower of Life, the Hex of Valkyrie, and Sandalphon’s 3D Seal through Euclidean geometry, graph theory, and symmetry-based constructions.</p>
+        <details>
+          <summary>Research scope and manuscript information</summary>
+          <p><strong>Core topics:</strong> Circular chord graphs, complete graphs, hexagonal circle lattices, embeddings, sixfold symmetry, and geometric projections.</p>
+          <p><strong>Document type:</strong> Theorem-style geometry thesis with definitions, argument sketches, and an appendix about the author's observational inspiration.</p>
+          <p><strong>Methodological status:</strong> Geometrical modeling and proposed correspondences; symbolic analogies are distinct from empirical claims or externally certified theorems.</p>
+          <p><strong>Full manuscript:</strong> Not linked. Publication and distribution approval pending.</p>
+        </details>
+      </article>
+      <article class="entry" data-category="religion" data-search="advanced topics jewish mysticism esoteric hebrew shem hamephorash tetragrammaton modern interpretations raziel sefer yetzirah sefer harazim divine name names name engine conversations">
+        <span class="tag">Comparative Religion / Ancient Languages</span>
+        <h3>Advanced Topics in Jewish Mysticism and Esoteric Hebrew</h3>
+        <p class="subtitle">Shem HaMephorash, Tetragrammaton, and Modern Interpretations</p>
+        <p class="meta">John Henry Douglas III &nbsp;·&nbsp; 15 February 2026 &nbsp;·&nbsp; 84-page supplied document</p>
+        <p class="excerpt">A multi-part research compilation exploring divine names, Hebrew and related mystical literature, interpretive name-fields, and a documented AI-assisted dialogue about the development of early Name-Engine hypotheses.</p>
+        <details>
+          <summary>Research scope and manuscript information</summary>
+          <p><strong>Core topics:</strong> Shem HaMephorash, the Tetragrammaton, Sefer Raziel, Sefer Yetzirah, Sefer HaRazim, and proposed linguistic-symbolic readings.</p>
+          <p><strong>Document type:</strong> Historical and interpretive essays together with a conversational appendix.</p>
+          <p><strong>Methodological status:</strong> Includes author interpretations and exploratory constructions. Proposed readings should not be conflated with historically attested names or independent linguistic validation.</p>
+          <p><strong>Name-Engine notice:</strong> This is an earlier research record, not the specification for the future calculator. An updated methodology is being prepared.</p>
+          <p><strong>Full manuscript:</strong> Not linked. Publication and distribution approval pending.</p>
+        </details>
+      </article>
+    </div>
+  </section>
+  <aside class="notice" aria-labelledby="archive-note">
+    <h2 id="archive-note">Editorial & publication policy</h2>
+    <p>Original document text and figures remain outside this public catalog until authorized for publication. Dates shown are dates stated in the supplied manuscript, not independently verified online publication dates. The Name-Engine calculator is intentionally deferred pending the revised rules paper.</p>
+  </aside>
+</main>
+<footer class="foot">
+  <div class="container">
+    <strong>ANTHROPOS DIVINUS — THE DIGITAL SANCTUARY</strong><br>
+    Research architecture: John Henry Douglas III · Independent Research Architect<br>
+    <a href="./">Return to the main sanctuary</a> · &copy; <span id="year">2026</span> John Henry Douglas III
+  </div>
+</footer>
+<script>
+  (function () {
+    'use strict';
+    const input = document.getElementById('search');
+    const items = Array.from(document.querySelectorAll('.entry'));
+    const filters = Array.from(document.querySelectorAll('.filter'));
+    const counter = document.getElementById('result-count');
+    let selectedCategory = 'all';
+    function update() {
+      const query = input.value.trim().toLocaleLowerCase();
+      let count = 0;
+      items.forEach(function (item) {
+        const matchesCategory = selectedCategory === 'all' || item.dataset.category === selectedCategory;
+        const searchable = (item.textContent + ' ' + item.dataset.search).toLocaleLowerCase();
+        const show = matchesCategory && searchable.includes(query);
+        item.hidden = !show;
+        if (show) count += 1;
+      });
+      counter.textContent = count + (count === 1 ? ' manuscript record found.' : ' manuscript records found.');
+    }
+    filters.forEach(function (filter) {
+      filter.addEventListener('click', function () {
+        selectedCategory = filter.dataset.category;
+        filters.forEach(function (f) { f.setAttribute('aria-pressed', String(f === filter)); });
+        update();
+      });
+    });
+    input.addEventListener('input', update);
+    document.getElementById('year').textContent = new Date().getFullYear();
+    update();
+  }());
+</script>
+</body>
+</html>
